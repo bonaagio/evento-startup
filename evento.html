@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra de Ingresso - StartupTalks - Empreendedorismo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #0A74DA;
+        }
+        .price {
+            font-size: 1.5em;
+            color: #e67e22;
+        }
+        .button {
+            background-color: #0A74DA;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #005fa3;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Seção 1: Página de Checkout -->
+    <div class="container" id="checkoutPage">
+        <h1>StartupTalks - Empreendedorismo</h1>
+        <p>Compre seu ingresso para o evento mais esperado do ano!</p>
+        
+        <h2>Informações do Ingresso</h2>
+        <p><strong>Evento:</strong> StartupTalks - Empreendedorismo</p>
+        <p><strong>Data:</strong> 12 de abril de 2025</p>
+        <p><strong>Local:</strong> Hotel e Restaurante Susin - Mafra - SC</p>
+        
+        <p class="price">Preço: R$ 50,00</p>
+        
+        <button class="button" onclick="showPaymentPage()">Comprar Ingresso</button>
+    </div>
+
+    <!-- Seção 2: Página de Pagamento -->
+    <div class="container hidden" id="paymentPage">
+        <h1>Confirmação de Compra</h1>
+        <p>Confira os detalhes da sua compra:</p>
+        
+        <h2>Informações do Ingresso</h2>
+        <p><strong>Evento:</strong> StartupTalks - Empreendedorismo</p>
+        <p><strong>Data:</strong> 12 de abril de 2025</p>
+        <p><strong>Local:</strong> Hotel e Restaurante Susin - Mafra - SC</p>
+        
+        <p class="price">Preço: R$ 50,00</p>
+        
+        <p><strong>Deseja confirmar o pagamento?</strong></p>
+        
+        <button class="button" onclick="showThankYouPage()">Confirmar Pagamento</button>
+    </div>
+
+    <!-- Seção 3: Página de Agradecimento -->
+    <div class="container hidden" id="thankYouPage">
+        <h1>Obrigado pela sua compra!</h1>
+        <p>Seu ingresso para o evento StartupTalks - Empreendedorismo foi confirmado.</p>
+        
+        <button class="button" onclick="restart()">Voltar à Página Inicial</button>
+    </div>
+
+    <script>
+        // Função para mostrar a página de pagamento e esconder a de checkout
+        function showPaymentPage() {
+            document.getElementById('checkoutPage').classList.add('hidden');
+            document.getElementById('paymentPage').classList.remove('hidden');
+        }
+
+        // Função para mostrar a página de agradecimento e esconder a de pagamento
+        function showThankYouPage() {
+            document.getElementById('paymentPage').classList.add('hidden');
+            document.getElementById('thankYouPage').classList.remove('hidden');
+        }
+
+        // Função para reiniciar o fluxo e voltar para a página inicial
+        function restart() {
+            document.getElementById('thankYouPage').classList.add('hidden');
+            document.getElementById('checkoutPage').classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
